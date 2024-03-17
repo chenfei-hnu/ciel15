@@ -15,7 +15,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
+    "@ant-design/icons": "^5.3.3",
     "antd": "^4.16.11",
     "axios": "^0.21.1",
     "dva-core": "^2.0.4",

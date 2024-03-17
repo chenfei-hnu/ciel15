@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import menu from '@config/menu';
 import { verArr } from '@utils/util';
 import styles from './index.less';
-
+import { MenuFoldOutlined } from '@ant-design/icons';
 
 type titleNode = {
   name: string;
@@ -27,6 +27,7 @@ interface InitProp {
 function SiderMenu(props: InitProp) {
   const [keys, setKeys] = useState<string[]>([]);
   const { pathname } = props.history && props.history.location;
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     if (pathname) setKeys([pathname]);
@@ -36,7 +37,14 @@ function SiderMenu(props: InitProp) {
    * @desc 处理选中路由
    * @param { string } key 当前所选菜单项
    */
-  const handleSelect = ({ key }) => props.history.push(key);
+  const handleSelect = ({ key }) => {
+    props.history.push(key)
+  };
+
+  const handleSelectItem = (key) => {
+    props.history.push(key)
+  };
+  
 
   /**
    * @desc 当前选中项名字
@@ -52,8 +60,33 @@ function SiderMenu(props: InitProp) {
 
   const defaultKeys = (verArr(keys) && ['/' + keys[0].split('/')[1]]) || [];
 
+  const mobileMenu = (
+    <Menu 
+      mode="vertical" 
+      defaultOpenKeys={defaultKeys} 
+      selectedKeys={keys} 
+      theme="dark" 
+      className={styles.menu}
+    >
+      {
+        menu.map((item: any) =>
+          <Menu.Item onClick={() => handleSelectItem(item.path)} className={styles.menuItem} key={item.path}>
+            <span>{item.name}({item.en})</span>
+          </Menu.Item>
+        )
+      }
+    </Menu>
+  );
+
   return (
     <div className={styles.menuWapper}>
+      {
+        isMobile ? <Dropdown overlay={mobileMenu} trigger={['click']}>
+        <a className={styles.menuLink} onClick={(e) => e.preventDefault()}>
+          <MenuFoldOutlined style={{ fontSize: '52px', color: '#fff' }} />
+        </a>
+      </Dropdown>
+      : 
       <Menu
         mode="horizontal"
         onSelect={handleSelect}
@@ -80,6 +113,7 @@ function SiderMenu(props: InitProp) {
             )
           )}
       </Menu>
+      }
     </div>
   );
 }
