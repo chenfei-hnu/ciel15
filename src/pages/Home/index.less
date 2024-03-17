@@ -1,0 +1,41 @@
+@import '@/styles/mixin.less';
+
+.homeWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../../asset/home/home.jpg') no-repeat center;
+
+  .top {
+    padding: 100px;
+    min-height: calc(100vh - 170px);
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    .title {
+      font-size: 45px;
+      font-weight: bold;
+      line-height: 60px;
+      margin: 0 0 60px 0;
+      p {
+        margin: 0;
+      }
+    }
+    .date, .position {
+      font-size: 38px;
+      line-height: 60px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .clear {
+    clear: both;
+    width: 100%;
+    height: 20px;
+  }
+
+}
