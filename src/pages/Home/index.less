@@ -1,33 +1,52 @@
 @import '@/styles/mixin.less';
 
 .homeWrap {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('../../asset/home/home.jpg') no-repeat center;
+  position: relative;
 
   .top {
-    padding: 100px;
+    width: 100vw;
     min-height: calc(100vh - 170px);
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
+    background-size: cover;
+    z-index: 1;
+
     .title {
       font-size: 45px;
       font-weight: bold;
-      line-height: 60px;
-      margin: 0 0 60px 0;
+      line-height: 100px;
+      height: 350px;
+      margin-top: 50px;
+      position: relative;
+      padding-top: 210px;
+      background: url('../../asset/indexPart.png') center top no-repeat;
       p {
         margin: 0;
       }
     }
-    .date, .position {
-      font-size: 38px;
-      line-height: 60px;
-      p {
-        margin: 0;
+    .content {
+      background: url('../../asset/mid.png') center top no-repeat;
+      height: calc(100vh - 570px);
+      padding-top: 80px;
+      .logo {
+        background: url('../../asset/footer.png') center no-repeat;
+        background-size: contain;
+        height: 80px;
+        margin-bottom: 20px;
+      }
+      .date, .position {
+        font-size: 38px;
+        line-height: 80px;
+        p {
+          margin: 0;
+        }
       }
     }
   }
