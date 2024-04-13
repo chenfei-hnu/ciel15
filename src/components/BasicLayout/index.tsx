@@ -29,29 +29,6 @@ function BasicLayout() {
             ))}
         </div>
       </Content>
-      <Footer className={styles.footer}>
-        <div className={styles.footerWapper}>
-          <div className={styles.left}>
-            <div className={styles.links}>
-              <b>友情链接：</b>
-              <a title="湖南大学" href="http://www.hnu.edu.cn/" target="_blank" rel="noreferrer">
-                湖南大学
-              </a>
-              <a
-                title="湖南大学外国语学院"
-                href="http://english.hnu.edu.cn/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                湖南大学外国语学院
-              </a>
-            </div>
-          </div>
-          <div className={styles.right}>
-            <div className={styles.qrcode}></div>
-          </div>
-        </div>
-      </Footer>
     </Layout>
   );
 }

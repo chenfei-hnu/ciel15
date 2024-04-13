@@ -1,8 +1,8 @@
 @import '@/styles/mixin.less';
 
 .researchDirectionWrap {
-  padding: 0 20vw;
-  min-height: calc(100vh - 210px);
+  padding: 0 10vw;
+  min-height: calc(100vh - 140px);
   margin: 20px 0;
 
   .title {
@@ -34,13 +34,152 @@
       font-weight: bold;
       margin-top: 40px;
     }
+    .partTitle {
+      font-weight: bold;
+    }
+    .mt40 {
+      margin-top:40px;
+    }
+    .even {
+      background-color: #ffffff; /* 奇数行背景色 */
+    }
+    .odd {
+      background-color: #f5f5f5; /* 偶数行背景色 */
+    }
+    .table {
+      border: 1px solid #ddd;
+      margin: 20px 0;
+    }
+    .nameCol {
+      width: 300px;
+      font-size: 20px;
+      padding-left: 20px;
+      div {
+        line-height: 30px;
+      }
+    }
+    .titleCol {
+      font-size: 20px;
+    }
+    .qrcode {
+      display: block;
+    }
+    .reporterWapper {
+      margin: 20px 0;
+      
+      .reporterRow {
+        .card {
+          background: none;
+        }
+        .box {
+          background: #fff;
+          position: relative;
+          border-radius: 12px;
+          box-shadow: 0 0 12px rgba(0,0,0,0.15);
+          margin: 0 auto;
+          padding: 10px;
+          &:hover {
+            background: #eee;
+            .imgDiv {
+              border: 2px solid #FFC000;
+            }
+          }
+          .imgDiv {
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 12px auto 0;
+            img {
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+            }
+          }
+          .botDiv {
+            padding: 12px 12px 0;
+            color: #989898;
+            font-size: 20px;
+            text-align: center;
+            .name {
+              height: 60px;
+              line-height: 60px;
+              color: #000;
+              overflow: hidden;
+              position: relative;
+              font-weight: bold;
+              .left {
+                margin-right: 12px;
+              }
+            }
+            .desc {
+              text-align: left;
+              color: #666;
+              padding-top: 12px;
+              line-height: 24px;
+              height: 660px;
+              overflow: hidden;
+              word-break: break-all;
+              /* 以下属性允许长单词在容器边缘处进行换行 */
+              overflow-wrap: break-word; /* 兼容性较好的属性 */
+              white-space: normal; /* 换行规则 */
+            }
+          }
+        }
+        &.row1 {
+          .box {
+            .botDiv {
+              .desc {
+                height: 480px;
+              }
+            }
+          }
+        }
+        &.row2 {
+          .box {
+            .botDiv {
+              .desc {
+                height: 530px;
+              }
+            }
+          }
+        }
+        &.row3 {
+          .box {
+            .botDiv {
+              .desc {
+                height: 410px;
+              }
+            }
+          }
+        }
+        &.row4 {
+          .box {
+            .botDiv {
+              .desc {
+                height: 670px;
+              }
+            }
+          }
+        }
+        &.row5 {
+          .box {
+            .botDiv {
+              .desc {
+                height: 510px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
-
 }
 
 @media (max-width: 768px) {
   .researchDirectionWrap {
-    padding: 0 10%;
+    padding: 0 5%;
     margin: 0;
     .title {
       line-height: 40px;
@@ -48,6 +187,22 @@
       justify-content: center;
       align-items: center;
       font-size: 26px;
+    }
+    .content {
+      .nameCol  {
+        width: 100px;
+      }
+      .reporterWapper {
+        .reporterRow {
+          .box {
+            .botDiv {
+              .desc {
+                height: auto !important;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
