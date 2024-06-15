@@ -24,6 +24,8 @@ function Speakers() {
       title: '报告人',
       key: 'name',
       dataIndex: 'name',
+      width: '40%',
+      align: 'center',
       render: (_, record) => (
         <div className={styles.nameCol} style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>
           <div>{record.name}</div>
@@ -34,6 +36,7 @@ function Speakers() {
     {
       title: '报告主题',
       dataIndex: 'title',
+      align: 'center',
       className: styles.titleCol,
       key: 'title',
     }

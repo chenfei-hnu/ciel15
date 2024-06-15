@@ -2,6 +2,7 @@
 
 .researchDirectionWrap {
   padding: 0 10vw;
+  width: 100vw;
   min-height: calc(100vh - 140px);
   margin: 20px 0;
 
@@ -34,11 +35,29 @@
       font-weight: bold;
       margin-top: 40px;
     }
+    .imgCenter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      img {
+        border-radius: 10px;
+      }
+    }
     .partTitle {
       font-weight: bold;
     }
+    .mt20 {
+      margin-top:20px;
+    }
     .mt40 {
       margin-top:40px;
+    }
+    .mt60 {
+      margin-top:60px;
+    }
+    .mb60 {
+      margin-bottom:60px;
     }
     .even {
       background-color: #ffffff; /* 奇数行背景色 */
@@ -49,11 +68,24 @@
     .table {
       border: 1px solid #ddd;
       margin: 20px 0;
+      tr > td, tr > th {
+        border: 1px solid #f0f0f0;
+      }
+    }
+    .timeTable {
+      border: 1px solid #ddd;
+      border-bottom: none;
+      .footer {
+        text-align: center;
+      }
+      tr > td, tr > th {
+        border: 1px solid #f0f0f0;
+      }
     }
     .nameCol {
       width: 300px;
       font-size: 20px;
-      padding-left: 20px;
+      margin: 0 auto;
       div {
         line-height: 30px;
       }

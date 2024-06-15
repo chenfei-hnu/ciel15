@@ -18,6 +18,9 @@ import yym from '../../asset/reporter/yym.jpg';
 import zmh from '../../asset/reporter/zmh.jpg';
 import zy from '../../asset/reporter/zy.jpg';
 import zzl from '../../asset/reporter/zzl.jpg';
+import notice3_1 from '../../asset/notice3_1.jpg';
+import qr from '../../asset/qr.jpg';
+import map from '../../asset/map.jpg';
 
 function CallForPapers() {
   const zhColumns =  [
@@ -25,6 +28,8 @@ function CallForPapers() {
       title: '报告人',
       key: 'name',
       dataIndex: 'name',
+      width: '40%',
+      align: 'center',
       render: (_, record) => (
         <div className={styles.nameCol} style={{ wordWrap: 'break-word', wordBreak: 'break-word' }}>
           <div>{record.name}</div>
@@ -35,6 +40,7 @@ function CallForPapers() {
     {
       title: '报告主题',
       dataIndex: 'title',
+      align: 'center',
       className: styles.titleCol,
       key: 'title',
     }
@@ -116,6 +122,834 @@ function CallForPapers() {
       title: 'Unraveling Atypical Auditory and Speech Processing in Chinese Children with Autism Spectrum Disorder: A Multi-faceted Collaborative Approach'
     }
   ];
+
+  const specialData =  [
+    {
+      name: '黄立鹤 教授',
+      university: '同济大学',
+      title: '轻度认知障碍老年人的宏观结构叙事能力研究'
+    },
+    {
+      name: '李俊仁 副教授',
+      university: '台湾师范大学',
+      title: '台湾学童阅读发展跟香港儿童阅读发展的差异'
+    },
+    {
+      name: '李英浩 教授',
+      university: '延边大学',
+      title: '言语产出中声门特征与舌位的协同作用—来自汉语和朝鲜语的证据'
+    },
+    {
+      name: '鲁曼 教授',
+      university: '湖南大学',
+      title: '语言中的此消彼长：土家语差比句标记个案研究'
+    },
+    {
+      name: '罗自群 教授',
+      university: '中央民族大学',
+      title: '怒苏语e31的演化路径'
+    },
+    {
+      name: '曲长亮 教授',
+      university: '大连外国语大学',
+      title: '英国-北欧学派语音演化思想再思考'
+    },
+    {
+      name: '王如蜜 副主任言语治疗师',
+      university: '中南大学湘雅二医院',
+      title: '发展性语言障碍的早期识别'
+    },
+    {
+      name: '王莹莹 教授',
+      university: '湖南大学',
+      title: '语气副词“实在”的量级语义学分析'
+    },
+    {
+      name: '吴君如 副教授',
+      university: '华东师范大学',
+      title: 'Systematic Correspondence in Co-evolving Languages'
+    },
+    {
+      name: '夏俐萍 研究员',
+      university: '中国社会科学院语言研究所',
+      title: '湘鄂赣“浊音走廊”的塞音格局'
+    },
+    {
+      name: '张清芳 教授',
+      university: '中国人民大学',
+      title: '口语句子产生中语法编码老化的认知机制：眼动研究'
+    },
+    {
+      name: '邹嘉彦 教授',
+      university: '香港城市大学/香港科技大学',
+      title: 'Portmanteau Words in Chinese and Covert Variations among MSC and Dialects'
+    },
+  ];
+
+  const d13morningPlanColumns = [
+    {
+      title: '日期',
+      key: 'date',
+      className: styles.dateCol,
+      dataIndex: 'date',
+      width: '25%',
+      align: 'center',
+      render: (text, record, index) => {
+        const previousRow = d13morningPlanData[index - 1];
+        let nextRow = d13morningPlanData[index + 1];
+        
+        let rowSpan = 1;
+        if (previousRow && previousRow.date === text) {
+          return {
+            children: text,
+            props: {
+              rowSpan: 0,
+            },
+          };
+        }
+        while (nextRow && nextRow.date === text) {
+          rowSpan++;
+          index++;
+          nextRow = d13morningPlanData[index + 1];
+        }
+        
+        return {
+          children: text,
+          props: {
+            rowSpan,
+          },
+        };
+      },
+    },
+    {
+      title: '时间',
+      dataIndex: 'time',
+      className: styles.timeCol,
+      key: 'time',
+      width: '25%',
+      align: 'center',
+    },
+    {
+      title: '内容',
+      dataIndex: 'content',
+      className: styles.contentCol,
+      key: 'content',
+      width: '25%',
+      align: 'center',
+      render: (text, record, index) => {
+        const previousRow = d13morningPlanData[index - 1];
+        let nextRow = d13morningPlanData[index + 1];
+        
+        let rowSpan = 1;
+        if (previousRow && previousRow.content === text) {
+          return {
+            children: text,
+            props: {
+              rowSpan: 0,
+            },
+          };
+        }
+        while (nextRow && nextRow.content === text) {
+          rowSpan++;
+          index++;
+          nextRow = d13morningPlanData[index + 1];
+        }
+        
+        return {
+          children: text,
+          props: {
+            rowSpan,
+          },
+        };
+      },
+    },
+    {
+      title: '地点',
+      dataIndex: 'position',
+      className: styles.positionCol,
+      key: 'position',
+      width: '25%',
+      align: 'center',
+      render: (text, record, index) => {
+        const previousRow = d13morningPlanData[index - 1];
+        let nextRow = d13morningPlanData[index + 1];
+        
+        let rowSpan = 1;
+        if (previousRow && previousRow.position === text) {
+          return {
+            children: text,
+            props: {
+              rowSpan: 0,
+            },
+          };
+        }
+        while (nextRow && nextRow.position === text) {
+          rowSpan++;
+          index++;
+          nextRow = d13morningPlanData[index + 1];
+        }
+        
+        return {
+          children: text,
+          props: {
+            rowSpan,
+          },
+        };
+      },
+    }
+  ]
+
+  const d13morningPlanData = [
+    {
+      date: '7月13日上午',
+      time: '8:30-9:00',
+      content: '开幕式、合影',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '9:00-9:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '9:30-10:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '10:00-10:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '10:30-11:00',
+      content: '茶歇',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '11:00-11:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '11:30-12:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月13日上午',
+      time: '12:00-12:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+  ]
+
+  const d13afternoonPlanColumns = [
+    {
+      title: '午餐、午休',
+      children: [
+        {
+          title: '日期',
+          key: 'date',
+          className: styles.dateCol,
+          dataIndex: 'date',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d13afternoonPlanData[index - 1];
+            let nextRow = d13afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.date === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.date === text) {
+              rowSpan++;
+              index++;
+              nextRow = d13afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '时间',
+          dataIndex: 'time',
+          className: styles.timeCol,
+          key: 'time',
+          width: '25%',
+      align: 'center',
+        },
+        {
+          title: '内容',
+          dataIndex: 'content',
+          className: styles.contentCol,
+          key: 'content',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d13afternoonPlanData[index - 1];
+            let nextRow = d13afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.content === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.content === text) {
+              rowSpan++;
+              index++;
+              nextRow = d13afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '地点',
+          dataIndex: 'position',
+          className: styles.positionCol,
+          key: 'position',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d13afternoonPlanData[index - 1];
+            let nextRow = d13afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.position === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.position === text) {
+              rowSpan++;
+              index++;
+              nextRow = d13afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        }
+      ],
+    },
+  ]
+
+  const d13afternoonPlanData = [
+    {
+      date: '7月13日下午',
+      time: '14:30-16:10',
+      content: '特邀口头报告（201）一般口头报告（其他教室）海报展示',
+      position: '湖南大学 复临舍'
+    },
+    {
+      date: '7月13日下午',
+      time: '16:10-16:30',
+      content: '茶歇',
+      position: '湖南大学 复临舍'
+    },
+    {
+      date: '7月13日下午',
+      time: '16:30-17:58',
+      content: '特邀口头报告（201）一般口头报告（其他教室）海报展示',
+      position: '湖南大学 复临舍'
+    },
+  ]
+
+  const d14morningPlanColumns = [
+    {
+      title: '晚餐',
+      children: [
+        {
+          title: '日期',
+          key: 'date',
+          className: styles.dateCol,
+          dataIndex: 'date',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14morningPlanData[index - 1];
+            let nextRow = d14morningPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.date === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.date === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14morningPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '时间',
+          dataIndex: 'time',
+          className: styles.timeCol,
+          key: 'time',
+          width: '25%',
+      align: 'center',
+        },
+        {
+          title: '内容',
+          dataIndex: 'content',
+          className: styles.contentCol,
+          key: 'content',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14morningPlanData[index - 1];
+            let nextRow = d14morningPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.content === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.content === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14morningPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '地点',
+          dataIndex: 'position',
+          className: styles.positionCol,
+          key: 'position',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14morningPlanData[index - 1];
+            let nextRow = d14morningPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.position === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.position === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14morningPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        }
+      ],
+    },
+  ]
+
+  const d14morningPlanData = [
+    {
+      date: '7月14日上午',
+      time: '8:30-9:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '9:00-9:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '9:30-10:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '10:00-10:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '10:30-11:00',
+      content: '茶歇',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '11:00-11:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '11:30-12:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日上午',
+      time: '12:00-12:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+  ]
+
+  const d14afternoonPlanColumns = [
+    {
+      title: '午餐、午休',
+      children: [
+        {
+          title: '日期',
+          key: 'date',
+          className: styles.dateCol,
+          dataIndex: 'date',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14afternoonPlanData[index - 1];
+            let nextRow = d14afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.date === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.date === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '时间',
+          dataIndex: 'time',
+          className: styles.timeCol,
+          key: 'time',
+          width: '25%',
+      align: 'center',
+        },
+        {
+          title: '内容',
+          dataIndex: 'content',
+          className: styles.contentCol,
+          key: 'content',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14afternoonPlanData[index - 1];
+            let nextRow = d14afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.content === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.content === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        },
+        {
+          title: '地点',
+          dataIndex: 'position',
+          className: styles.positionCol,
+          key: 'position',
+          width: '25%',
+      align: 'center',
+          render: (text, record, index) => {
+            const previousRow = d14afternoonPlanData[index - 1];
+            let nextRow = d14afternoonPlanData[index + 1];
+            
+            let rowSpan = 1;
+            if (previousRow && previousRow.position === text) {
+              return {
+                children: text,
+                props: {
+                  rowSpan: 0,
+                },
+              };
+            }
+            while (nextRow && nextRow.position === text) {
+              rowSpan++;
+              index++;
+              nextRow = d14afternoonPlanData[index + 1];
+            }
+            
+            return {
+              children: text,
+              props: {
+                rowSpan,
+              },
+            };
+          },
+        }
+      ],
+    },
+  ]
+
+  const d14afternoonPlanData = [
+    {
+      date: '7月14日下午',
+      time: '14:30-16:10',
+      content: '特邀口头报告（201）一般口头报告（其他教室）',
+      position: '湖南大学 复临舍'
+    },
+    {
+      date: '7月14日下午',
+      time: '16:10-16:30',
+      content: '茶歇',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日下午',
+      time: '16:30-17:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日下午',
+      time: '17:00-17:30',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日下午',
+      time: '17:30-18:00',
+      content: '主旨报告',
+      position: '湖南大学 逸夫楼'
+    },
+    {
+      date: '7月14日下午',
+      time: '18:00-18:15',
+      content: '闭幕式',
+      position: '湖南大学 逸夫楼'
+    },
+  ]
+  
+  const trafficColumns = [
+    {
+      title: '终点',
+      key: 'des',
+      dataIndex: 'des',
+      width: '25%',
+      align: 'center',
+      render: (text, record, index) => {
+        const previousRow = trafficData[index - 1];
+        let nextRow = trafficData[index + 1];
+        
+        let rowSpan = 1;
+        if (previousRow && previousRow.des === text) {
+          return {
+            children: text,
+            props: {
+              rowSpan: 0,
+            },
+          };
+        }
+        while (nextRow && nextRow.des === text) {
+          rowSpan++;
+          index++;
+          nextRow = trafficData[index + 1];
+        }
+        
+        return {
+          children: text,
+          props: {
+            rowSpan,
+          },
+        };
+      },
+    },
+    {
+      title: '起点',
+      dataIndex: 'start',
+      key: 'start',
+      width: '25%',
+      align: 'center',
+      render: (text, record, index) => {
+        const previousRow = trafficData[index - 1];
+        let nextRow = trafficData[index + 1];
+        
+        let rowSpan = 1;
+        if (previousRow && previousRow.start === text) {
+          return {
+            children: text,
+            props: {
+              rowSpan: 0,
+            },
+          };
+        }
+        while (nextRow && nextRow.start === text) {
+          rowSpan++;
+          index++;
+          nextRow = trafficData[index + 1];
+        }
+        
+        return {
+          children: text,
+          props: {
+            rowSpan,
+          },
+        };
+      },
+    },
+    {
+      title: '交通工具',
+      dataIndex: 'way',
+      key: 'way',
+      width: '25%',
+      align: 'center',
+    },
+    {
+      title: '路线及时长',
+      dataIndex: 'time',
+      key: 'time',
+      width: '25%',
+      align: 'center',
+      render: (text) => <span dangerouslySetInnerHTML={{ __html: text }} />,
+    }
+  ]
+  
+  const trafficData = [
+    {
+      des: '湖南大学南校区',
+      start: '长沙黄花机场',
+      way: '出租车',
+      time: '预计花费 95-110 元</br>约 1.25 小时'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙黄花机场',
+      way: '地铁',
+      time: '6号线黄花机场站 - 6号线六沟垅站換乘 - 4号线湖南大学站</br>约 1.25 小时'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙黄花机场',
+      way: '磁浮快线',
+      time: '磁浮快线机场站 - 磁浮快线高铁站换乘 - 4号线湖南大学站</br>约 1.25 小时'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙高铁南站',
+      way: '出租车',
+      time: '预计花费 45-60 元，时长</br>约 50 分钟'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙高铁南站',
+      way: '地铁',
+      time: '4号线长沙火车南站 - 4号线湖南大学站</br>约 40 分钟'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙火车站',
+      way: '出租车',
+      time: '预计花费 20-30 元，时长</br>约 30分钟'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙火车站',
+      way: '地铁',
+      time: '2号线长沙火车站 - 2号线溁湾镇站换乘 - 4号线湖南大学站时长</br>约 30 分钟'
+    },
+    {
+      des: '湖南大学南校区',
+      start: '长沙火车站',
+      way: '公交车',
+      time: '立珊专线:长沙火车站一湖南大学地铁站</br>约 30 分钟'
+    },
+  ]
+  
   
   const getRowClassName = (record, index) => {
     return index % 2 === 0 ? styles.even : styles.odd;
@@ -131,12 +965,156 @@ function CallForPapers() {
           <p className={styles.mainTitle}>
             The 15th International Conference in Evolutionary Linguistics
           </p>
+          <p className={styles.mt60}></p>
+          <p className={styles.mainTitle}>
+            (CIEL-15)三号通知
+          </p>
+          <p className={styles.mainTitle}>
+            (CIEL-15)Notice No.3
+          </p>
+          <p className={styles.mb60}></p>
+          <div className={styles.listTitle}>一、会议介绍</div>
+          <p className={styles.mt20}>
+          以新文科倡导的跨学科视野，演化语言学与人类学、考古学、生物学、语言学、神经科学、心理学和计算机科学等学科交叉共融。演化语言学国际研讨会（International Conference in Evolutionary Linguistics, CIEL）是由国际著名语言学家王士元教授首倡的，至今已经在海内外多所著名高校成功举办了14届，以往在广州（2009年）、天津（2010年、2015年）、上海（2011年、2019年）、北京（2012年）、厦门（2014年）、美国印第安纳州（2016年）、昆明（2017年）、南京（2018年）、兰州（2021年）、济南（2022年）和香港（2013年、2023年）分别成功举办。演化语言学国际研讨会旨在展示语言学的新交叉视野，倡导新的研究手段方法，为相关领域的海内外学者们提供跨学科国际交流合作机会，共同推动演化语言学研究的进步。
+          </p>
+          <p>
+          第十五届演化语言学国际研讨会（CIEL-15）将于2024年7月12日至14日在湖南大学举行，由湖南大学外国语学院主办，深圳市神经科学研究院协办。<b>会议主题：新文科背景下语言演化的跨学科研究。</b>今恭邀国内外专家、学者、教师、研究生拨冗与会！
+          </p>
+          <p className={styles.imgCenter}>
+            <img src={notice3_1}/>
+          </p>
+          <div className={styles.listTitle}>二、会议议题</div>
+          <ul className={styles.mt20}>
+            <li>
+            （1）汉语及其他语言的祖先；
+            </li>
+            <li>
+            （2）典型和非典型人群的语言发展;
+            </li>
+            <li>
+            （3）老龄化与语言退化；
+            </li>
+            <li>
+            （4）音乐与语言演化;
+            </li>
+            <li>
+            （5）语言、认知与大脑；
+            </li>
+            <li>
+            （6）方言的形成与演化；
+            </li>
+            <li>
+            （7）语言的共时与历时研究；
+            </li>
+            <li>
+            （8）大型语言模型的发展与演化；
+            </li>
+            <li>
+            （9）其他语言相关的议题。
+            </li>
+          </ul>
+          <div className={styles.listTitle}>三、会议形式</div>
+          <p className={styles.mt20}>
+          本次国际研讨会拟设立三大报告形式：主旨报告、口头报告、海报展示。研讨会学术语言为汉语普通话和英语。
+          </p>
+          <div className={styles.subTitle}>
+          1.	大会主旨报告（以姓氏字母为序）
+          </div>
+          <Table pagination={false} columns={zhColumns} className={styles.table} showHeader={false} rowClassName={getRowClassName}
+          dataSource={zhData} />
+          <div className={styles.subTitle}>
+          2.	特邀口头报告
+          </div>
+          <p className={styles.mt20}>
+          本次会议设立特邀口头报告，具体信息如下（按照姓氏首字母排序）：
+          </p>
+          <Table pagination={false} columns={zhColumns} className={styles.table} showHeader={false} rowClassName={getRowClassName}
+ dataSource={specialData} />
+          <p className={styles.subTitle}>
+          3.	一般口头报告。
+          </p>
+          <p className={styles.mt20}>
+          本次会议设置10个分会场，入选的口头汇报将在各分会场进行交流，每个报告12分钟。
+          </p>
+          <p className={styles.subTitle}>
+          4.	海报展示。
+          </p>
+          <p className={styles.mt20}>
+          大会拟设立专门的论文海报展示区域，方便与会代表一对一讨论交流。
+          </p>
+          <div className={styles.listTitle}>四、会议议程</div>
+          <p className={styles.mt20}>
+          7月12日全天签到注册，7月13-14日全天进行会议报告及海报展示。具体议程如下表：
+          </p>
+          <Table pagination={false} columns={d13morningPlanColumns} className={styles.timeTable} showHeader={true}
+          dataSource={d13morningPlanData} />
+          <Table pagination={false} columns={d13afternoonPlanColumns} className={styles.timeTable} showHeader={true}
+          dataSource={d13afternoonPlanData} />
+          <Table pagination={false} columns={d14morningPlanColumns} className={styles.timeTable} showHeader={true}
+          dataSource={d14morningPlanData} />
+          <Table pagination={false} columns={d14afternoonPlanColumns} className={styles.timeTable} showHeader={true}
+          dataSource={d14afternoonPlanData} footer={() => <div className={styles.footer}>晚餐</div>} />
+          <p className={styles.mt40}></p>
+
+          <div className={styles.listTitle}>五、会议议程</div>
+          <p className={styles.mt20} >
+          (1) 会务费：人民币800元，全日制研究生凭学生证500元，签到当日现场缴费并获取电子发票。会务费涵盖参加会议期间的用餐、茶歇以及会议资料费。住宿费和交通费需自理。
+          </p>
+          <p>
+          (2) 本次会议收稿日期目前已经截止。为满足各位师生的参会需求，经组委会商议，继续接受大会旁听名额，旁听参会老师或者学生需缴纳会务费，无需提交摘要，也不再安排会议报告。有意旁听者请于6月25日前填写报名链接(https://www.wjx.top/vm/wkc2hqL.aspx#)或扫描下方二维码在线报名，通过报名审核后，会务专家组将在五个工作日内通过邮箱发出正式参会通知和会议具体安排。
+          </p>
+          <p className={styles.imgCenter}>
+            <img src={qr}/>
+          </p>
+          <p>
+          （注：由于旁听席位与场地限制，校外报名人数限定为60人，先到先得。如未能满足您的报名需求，敬请谅解！）
+          </p>
+          <div className={styles.listTitle}>六、交通及住宿</div>
+          <div className={styles.listTitle}>（1）会议地点</div>
+          <p className={styles.mt20}>
+          主旨报告：湖南大学逸夫楼 主报告厅
+          </p>
+          <p>
+          口头汇报：复临舍201、203、204、208、209
+          </p>
+          <p>
+          海报展示：复临舍大厅
+          </p>
+          <p className={styles.imgCenter}>
+            <img src={map}/>
+          </p>
+          <p className={styles.imgCenter}>
+            湖南大学校园地图
+          </p>
+          <div className={styles.listTitle}>（2）交通方式</div>
+          <Table pagination={false} columns={trafficColumns} className={styles.table} showHeader={true}
+          dataSource={trafficData} />
+          <div className={styles.listTitle}>（3）会议推荐酒店：湖南大学集贤宾馆</div>
+          <div className={styles.listTitle}>七、会议组织</div>
+          <div className={styles.listTitle}>（1）报名联系老师：</div>
+          <ul className={styles.mt20}>
+            <li>
+            朱老师：18291849054
+            </li>
+            <li>
+            匡老师：15274656369
+            </li>
+            <li>
+            姜老师：18273128651
+            </li>
+          </ul>
+          <div className={styles.listTitle}>（2）研讨会名誉主席：王士元</div>
+          <div className={styles.listTitle}>（3）主席团：陈飞、彭刚、谭力海</div>
+          <div className={styles.listTitle}>（4）会议邮箱：ciel15hnu@gmail.com</div>
+          <div className={styles.listTitle}>（5）会议主页：http://www.ciel-15.com</div>
+          <p className={styles.mt60}></p>
           <p className={styles.mainTitle}>
             (CIEL-15)二号通知
           </p>
           <p className={styles.mainTitle}>
             (CIEL-15)Notice No.2
           </p>
+          <p className={styles.mb60}></p>
           <p>
           以新文科倡导的跨学科视野，演化语言学与人类学、考古学、生物学、语言学、神经科学、心理学和计算机科学等学科交叉共融。演化语言学国际研讨会（International Conference in Evolutionary Linguistics, CIEL）是由国际著名语言学家王士元教授首倡的，至今已经在海内外多所著名高校成功举办了14届，以往在广州（2009年）、天津（2010年、2015年）、上海（2011年、2019年）、北京（2012年）、厦门（2014年）、美国印第安纳州（2016年）、昆明（2017年）、南京（2018年）、兰州（2021年）、济南（2022年）和香港（2013年、2023年）分别成功举办。演化语言学国际研讨会旨在展示语言学的新交叉视野，倡导新的研究手段方法，为相关领域的海内外学者们提供跨学科国际交流合作机会，共同推动演化语言学研究的进步。
           </p>
@@ -150,7 +1128,7 @@ function CallForPapers() {
           The 15th International Conference in Evolutionary Linguistics (CIEL-15) will be held during July 12-14, 2024 at Hunan University. CIEL-15 will be held by School of Foreign Languages, Hunan University, and co-organized by the Shenzhen Institute of Neuroscience. CIEL-15 will invite scholars of representative and influential figures in the relevant fields from both domestic and international areas to deliver keynote speeches. We cordially invite all scholars to attend! Please find below the conference schedule and details regarding the submission of abstracts and other related matters:
           </p>
           <div className={styles.listTitle}>一、会议议题</div>
-          <ul>
+          <ul className={styles.mt20}>
             <li>
             （1）汉语及其他语言的祖先；
             </li>
@@ -180,7 +1158,7 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>I.Conference Topics</div>
-          <ul>
+          <ul className={styles.mt20}>
             <li>
               1.	The proto-language of Chinese and other languages;
             </li>
@@ -210,21 +1188,21 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>二、会议形式</div>
-          <p className={styles.mt40}>
+          <p className={styles.mt20}>
           本次国际研讨会拟设立三大报告形式：主旨报告、口头报告、海报展示。研讨会学术语言为汉语普通话和英语。
           </p>
           <div className={styles.subTitle}>
           1.	大会主旨报告（以姓氏字母为序）
           </div>
           <div className={styles.listTitle}>II.	Conference Format</div>
-          <p className={styles.mt40}>
+          <p className={styles.mt20}>
           The conference will set up three types of presentations: keynote speeches, oral presentations, and poster sessions. The academic languages of the conference will be Mandarin Chinese and English.
           </p>
           <div className={styles.subTitle}>
           1.	Keynote Speeches (in alphabetical order by last name)
           </div>
           <Table pagination={false} columns={zhColumns} className={styles.table} showHeader={false} rowClassName={getRowClassName}
- dataSource={zhData} />
+          dataSource={zhData} />
           <p className={styles.subTitle}>
           2.	口头报告。每位入选的发言人进行口头汇报与交流。
           </p>
@@ -239,7 +1217,7 @@ function CallForPapers() {
           </p>
 
           <div className={styles.listTitle}>三、报名注册</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             1.	会议日程：7月12日全天签到注册，7月13-14日全天进行会议报告及海报展示。
             </li>
@@ -251,7 +1229,7 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>III.Registration</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             1.	Conference Schedule: Full-day registration on July 12th, followed by conference presentations and poster sessions throughout July 13th and 14th.
             </li>
@@ -264,7 +1242,7 @@ function CallForPapers() {
           </ul>
 
           <div className={styles.listTitle}>四、论文征稿及摘要提交要求</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             1.	每位参会代表均需提交论文摘要。请在摘要中详细标明作者姓名（报告人的名字用下划线突出显示），单位名称以及电子邮箱等。
             </li>
@@ -272,11 +1250,13 @@ function CallForPapers() {
             <p>
             2.	投稿截止日期：有意参会代表请在2024年5月10日前把参会详细中文（600-800字）或英文摘要（400-600字）和参会回执（见附件1或者扫描下方二维码下载，参会人员均需提交）以word格式发送至指定邮箱：ciel15hnu@gmail.com。投稿邮件请命名为“CIEL15-姓名-单位-身份（教师或者学生）”。届时组委会将组织专家对摘要进行评审，将于2024年5月31日前发出正式邀请函。
             </p>
+            <p className={styles.imgCenter}>
             <Image
               width={200}
               className={styles.qrcode}
               src={qrSrc}
             />
+            </p>
             </li>
             <li>
             3.	有关投稿和参会的问题请通过电子邮件ciel15hnu@gmail.com问询。
@@ -284,19 +1264,21 @@ function CallForPapers() {
           </ul>
 
           <div className={styles.listTitle}>IV.	Call for Papers and Submission Requirements</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             1.	All conference participants are required to submit paper abstract. Please specify the author's name (with the presenter’s name highlighted), affiliation, and email address in the abstract.
             </li>
             <li>
-            <p>
-            2.	Submission Deadline: Conference participants should submit their detailed abstracts in Chinese (600-800 words) or English (400-600 words) along with the registration receipt (See the attachment or scan the QR code below to download, required for all participants) in Word format to the designated email: ciel15hnu@gmail.com by May 10, 2024. Please format the email title as “CIEL15-Name-Institution-Status (Teacher or Student)”. The organizing committee will arrange for expert review of the abstracts and the official invitation letter will be issued before May 31, 2024.
-            </p>
-            <Image
-              width={200}
-              className={styles.qrcode}
-              src={qrSrc}
-            />
+              <p>
+              2.	Submission Deadline: Conference participants should submit their detailed abstracts in Chinese (600-800 words) or English (400-600 words) along with the registration receipt (See the attachment or scan the QR code below to download, required for all participants) in Word format to the designated email: ciel15hnu@gmail.com by May 10, 2024. Please format the email title as “CIEL15-Name-Institution-Status (Teacher or Student)”. The organizing committee will arrange for expert review of the abstracts and the official invitation letter will be issued before May 31, 2024.
+              </p>
+              <p className={styles.imgCenter}>
+                <Image
+                  width={200}
+                  className={styles.qrcode}
+                  src={qrSrc}
+                />
+              </p>
             </li>
             <li>
             3.	For questions regarding conference issues, please contact us via email at ciel15hnu@gmail.com.
@@ -579,7 +1561,7 @@ function CallForPapers() {
           </div>
 
           <div className={styles.listTitle}>六、会议组织</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             （1）研讨会名誉主席：王士元
             </li>
@@ -595,7 +1577,7 @@ function CallForPapers() {
           </ul>
 
           <div className={styles.listTitle}>VI.	Conference Organization</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             1.	Honorary Chair: WANG S-Y.William
             </li>
@@ -616,13 +1598,14 @@ function CallForPapers() {
           <p>
           Information about this conference will also be available on the School of Foreign Languages at Hunan University website (http://english.hnu.edu.cn/), the 15th International Conference in Evolutionary Linguistics (CIEL-15) official website (http://www.ciel-15.com), and the WeChat public account【语言认知与健康】. Please stay updated by checking these platforms. 
           </p>
-
+          <p className={styles.mt60}></p>
           <p className={styles.mainTitle}>
             (CIEL-15)一号通知
           </p>
           <p className={styles.mainTitle}>
             (CIEL-15)Notice No.1
           </p>
+          <p className={styles.mb60}></p>
           <p>
           第十五届演化语言学国际研讨会（CIEL-15）将于2024年7月12日至14日在湖南大学举行，由湖南大学外国语学院主办，深圳市神经科学研究院协办。
           </p>
@@ -636,7 +1619,7 @@ function CallForPapers() {
           CIEL-15 will invite scholars of representative and influential figures in the relevant fields from both domestic and international arenas to deliver keynote speeches. We cordially invite all scholars to attend, and kindly request that the titles and abstracts (approximately 400-800 words) of the papers to be presented at the conference be submitted in Word format to ciel15hnu@gmail.com by May 1, 2024. The official invitation letter will be issued before May 31, 2024. The working languages of CIEL-15 are Mandarin and English.
           </p>
           <div className={styles.listTitle}>会议议题</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             （1）汉语及其他语言的祖先；
             </li>
@@ -666,7 +1649,7 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>Conference topics may include the following:</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
               1.	The proto-language of Chinese and other languages;
             </li>
@@ -696,7 +1679,7 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>会议组织</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
             （1）研讨会名誉主席：王士元
             </li>
@@ -711,7 +1694,7 @@ function CallForPapers() {
             </li>
           </ul>
           <div className={styles.listTitle}>Conference Organization:</div>
-          <ul>
+          <ul className={styles.mt20} >
             <li>
               1.	Honorary Chair: WANG S-Y.William
             </li>
