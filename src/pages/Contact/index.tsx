@@ -86,9 +86,6 @@ function Contact() {
             Zip Code: 410082
             </li>
             <li>
-              电 话：0731-88821135
-            </li>
-            <li>
             Telephone: 0731-88821135
             </li>
             <li>

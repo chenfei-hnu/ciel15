@@ -58,7 +58,7 @@ function Attendance() {
           (Note: Due to seat and venue limitations, the number of audiences is limited to 60, on a first come, first served basis. If your registration request cannot be accommodated, we appreciate your understanding.)
           </p>
           <p>
-          Registration link: If we are unable to accommodate your registration request, we appreciate your understanding.
+          Registration link: <a href="https://www.wjx.top/vm/wkc2hqL.aspx#">https://www.wjx.top/vm/wkc2hqL.aspx#</a>
           </p>
           <p>
           QR code: 
