@@ -816,42 +816,42 @@ function CallForPapers() {
       position: '湖南大学 逸夫楼'
     },
   ]
-  
-  const trafficColumns = [
-    {
-      title: '终点',
-      key: 'des',
-      dataIndex: 'des',
-      width: '25%',
-      hidden: isSmallScreen,
-      align: 'center',
-      render: (text, record, index) => {
-        const previousRow = trafficData[index - 1];
-        let nextRow = trafficData[index + 1];
-        
-        let rowSpan = 1;
-        if (previousRow && previousRow.des === text) {
-          return {
-            children: text,
-            props: {
-              rowSpan: 0,
-            },
-          };
-        }
-        while (nextRow && nextRow.des === text) {
-          rowSpan++;
-          index++;
-          nextRow = trafficData[index + 1];
-        }
-        
+  const isSmallScreen = window.innerWidth < 1024
+  const desArr = isSmallScreen ? [] : [{
+    title: '终点',
+    key: 'des',
+    dataIndex: 'des',
+    width: '25%',
+    align: 'center',
+    render: (text, record, index) => {
+      const previousRow = trafficData[index - 1];
+      let nextRow = trafficData[index + 1];
+      
+      let rowSpan = 1;
+      if (previousRow && previousRow.des === text) {
         return {
           children: text,
           props: {
-            rowSpan,
+            rowSpan: 0,
           },
         };
-      },
+      }
+      while (nextRow && nextRow.des === text) {
+        rowSpan++;
+        index++;
+        nextRow = trafficData[index + 1];
+      }
+      
+      return {
+        children: text,
+        props: {
+          rowSpan,
+        },
+      };
     },
+  }]
+  const trafficColumns = [
+    ...desArr,
     {
       title: '起点',
       dataIndex: 'start',
