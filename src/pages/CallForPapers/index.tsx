@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.less';
 import { connect } from 'react-redux';
 import { Table, Image, Row, Card, Col } from 'antd';
@@ -23,6 +23,8 @@ import qr from '../../asset/qr.jpg';
 import map from '../../asset/map.jpg';
 
 function CallForPapers() {
+  const isSmallScreen = window.innerWidth < 1024
+
   const zhColumns =  [
     {
       title: '报告人',
@@ -821,6 +823,7 @@ function CallForPapers() {
       key: 'des',
       dataIndex: 'des',
       width: '25%',
+      hidden: isSmallScreen,
       align: 'center',
       render: (text, record, index) => {
         const previousRow = trafficData[index - 1];
@@ -1061,7 +1064,7 @@ function CallForPapers() {
           (1) 会务费：人民币800元，全日制研究生凭学生证500元，签到当日现场缴费并获取电子发票。会务费涵盖参加会议期间的用餐、茶歇以及会议资料费。住宿费和交通费需自理。
           </p>
           <p>
-          (2) 本次会议收稿日期目前已经截止。为满足各位师生的参会需求，经组委会商议，继续接受大会旁听名额，旁听参会老师或者学生需缴纳会务费，无需提交摘要，也不再安排会议报告。有意旁听者请于6月25日前填写报名链接(https://www.wjx.top/vm/wkc2hqL.aspx#)或扫描下方二维码在线报名，通过报名审核后，会务专家组将在五个工作日内通过邮箱发出正式参会通知和会议具体安排。
+          (2) 本次会议收稿日期目前已经截止。为满足各位师生的参会需求，经组委会商议，继续接受大会旁听名额，旁听参会老师或者学生需缴纳会务费，无需提交摘要，也不再安排会议报告。有意旁听者请于6月25日前填写报名链接(<a href="https://www.wjx.top/vm/wkc2hqL.aspx#">https://www.wjx.top/vm/wkc2hqL.aspx#</a>)或扫描下方二维码在线报名，通过报名审核后，会务专家组将在五个工作日内通过邮箱发出正式参会通知和会议具体安排。
           </p>
           <p className={styles.imgCenter}>
             <img src={qr}/>
