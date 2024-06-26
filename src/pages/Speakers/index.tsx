@@ -100,7 +100,7 @@ function Speakers() {
     {
       name: '杨亦鸣 教授',
       university: '江苏师范大学',
-      title: '待定'
+      title: 'ChatGPT距人类语言有多远——生成式语言大模型与人类语言生成的比较'
     },
     {
       name: '袁家宏 教授',
