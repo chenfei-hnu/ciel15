@@ -29,6 +29,12 @@ export default [
     list: [],
   },
   {
+    name: '会议资料',
+    en: 'ConferenceManual',
+    path: '/conference-manual',
+    list: [],
+  },
+  {
     name: '交通',
     en: 'Transportation',
     path: '/transportation',

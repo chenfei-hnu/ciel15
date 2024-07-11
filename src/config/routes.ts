@@ -26,6 +26,11 @@ const Speakers = Loadable({
   loading: DelayLoading,
 });
 
+const ConferenceManual = Loadable({
+  loader: () => import(/* webpackChunkName: "AcademicPaper" */ '../pages/ConferenceManual/index'),
+  loading: DelayLoading,
+});
+
 const Transportation = Loadable({
   loader: () => import(/* webpackChunkName: "AcademicPaper" */ '../pages/Transportation/index'),
   loading: DelayLoading,
@@ -69,6 +74,10 @@ export default [
   {
     path: '/transportation',
     component: Transportation,
+  },
+  {
+    path: '/conference-manual',
+    component: ConferenceManual,
   },
   {
     path: '/accommodation',
